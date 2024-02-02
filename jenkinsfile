@@ -56,21 +56,22 @@ pipeline {
                     rm -rf openshift-client-linux*.gz
                     ${oc_login_command}
                 '''
+                }
             }
         stage('ansible oneclick_core') {
             steps {
                 sh '''
-                echo "starting cp4d Installation...."
-                #export PATH=$PATH:/var/lib/jenkins/.local/bin
-                cd ansible-devops/ibm/mas_devops
-                export ARTIFACTORY_USERNAME="pmqcloud@us.ibm.com"
-                export ARTIFACTORY_TOKEN="eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI1Z0dyZUE3SUk1NWNZelJDSmVHcDJXV01YSnV2SjJvWUNfeVcwNnM5WFQwIn0.eyJzdWIiOiJqZi1hY2Nlc3NAYzE0NTBhNDMtZjgyNS00MDA2LTg2ZjMtNDMzNzJiOTVmNjAxXC91c2Vyc1wvcG1xY2xvdWRAdXMuaWJtLmNvbSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL3VzZXIiLCJhdWQiOlsiamZydEAqIiwiamZ4ckAqIl0sImlzcyI6ImpmLWFjY2Vzc0BjMTQ1MGE0My1mODI1LTQwMDYtODZmMy00MzM3MmI5NWY2MDEiLCJleHAiOjE3MTI1MDE1MDcsImlhdCI6MTcwNDcyNTUwNywianRpIjoiZDQzMDBhMWMtYWQxYy00ODk0LWI4YWYtZjZlNzY2N2VhMWViIn0.aXqWKykbkhVuETZKz4PJnLiV8YsgzGV5jyRRCJSTXay6Nbqac_ROK9InhkM6B5__6m0rzhvu5UlERqsIK5kqr6t69Zh4jZ5X0uz2ftfz3g8QdcoBQFFFPam5IDgbOykWvp8yv7P6V9_NnypV4zJQye8BlBtUUjfjCh_LPn1qJCviPHYXaC_BWhaGq57PZetpWtP9jDbEJwRlY48pipvMcspHlO_mB0tdi3lSOh9CKeQ-x00X2UHltPqtxLa9jTckn9UoJiaenMo8foQ6QqF29NYV5cewtVlhvP822KpcTR4AcXM-w3bq-D6GDGNDiiLZwKeRmcGcIIIIQdz2A81V9g"
-                export ARTIFACTORY_APIKEY="eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI1Z0dyZUE3SUk1NWNZelJDSmVHcDJXV01YSnV2SjJvWUNfeVcwNnM5WFQwIn0.eyJzdWIiOiJqZi1hY2Nlc3NAYzE0NTBhNDMtZjgyNS00MDA2LTg2ZjMtNDMzNzJiOTVmNjAxXC91c2Vyc1wvcG1xY2xvdWRAdXMuaWJtLmNvbSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL3VzZXIiLCJhdWQiOlsiamZydEAqIiwiamZ4ckAqIl0sImlzcyI6ImpmLWFjY2Vzc0BjMTQ1MGE0My1mODI1LTQwMDYtODZmMy00MzM3MmI5NWY2MDEiLCJleHAiOjE3MTI1MDE1MDcsImlhdCI6MTcwNDcyNTUwNywianRpIjoiZDQzMDBhMWMtYWQxYy00ODk0LWI4YWYtZjZlNzY2N2VhMWViIn0.aXqWKykbkhVuETZKz4PJnLiV8YsgzGV5jyRRCJSTXay6Nbqac_ROK9InhkM6B5__6m0rzhvu5UlERqsIK5kqr6t69Zh4jZ5X0uz2ftfz3g8QdcoBQFFFPam5IDgbOykWvp8yv7P6V9_NnypV4zJQye8BlBtUUjfjCh_LPn1qJCviPHYXaC_BWhaGq57PZetpWtP9jDbEJwRlY48pipvMcspHlO_mB0tdi3lSOh9CKeQ-x00X2UHltPqtxLa9jTckn9UoJiaenMo8foQ6QqF29NYV5cewtVlhvP822KpcTR4AcXM-w3bq-D6GDGNDiiLZwKeRmcGcIIIIQdz2A81V9g"
-                export IBM_ENTITLEMENT_KEY=${MAS_ENTITLEMENT_KEY}
-                export CPD_INSTALL_PLATFORM=True
-                export CPD_INSTALL_WML=True
-                ansible-playbook playbooks/cp4d.yml
-            '''
+                    echo "starting cp4d Installation...."
+                    #export PATH=$PATH:/var/lib/jenkins/.local/bin
+                    cd ansible-devops/ibm/mas_devops
+                    export ARTIFACTORY_USERNAME="pmqcloud@us.ibm.com"
+                    export ARTIFACTORY_TOKEN="eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI1Z0dyZUE3SUk1NWNZelJDSmVHcDJXV01YSnV2SjJvWUNfeVcwNnM5WFQwIn0.eyJzdWIiOiJqZi1hY2Nlc3NAYzE0NTBhNDMtZjgyNS00MDA2LTg2ZjMtNDMzNzJiOTVmNjAxXC91c2Vyc1wvcG1xY2xvdWRAdXMuaWJtLmNvbSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL3VzZXIiLCJhdWQiOlsiamZydEAqIiwiamZ4ckAqIl0sImlzcyI6ImpmLWFjY2Vzc0BjMTQ1MGE0My1mODI1LTQwMDYtODZmMy00MzM3MmI5NWY2MDEiLCJleHAiOjE3MTI1MDE1MDcsImlhdCI6MTcwNDcyNTUwNywianRpIjoiZDQzMDBhMWMtYWQxYy00ODk0LWI4YWYtZjZlNzY2N2VhMWViIn0.aXqWKykbkhVuETZKz4PJnLiV8YsgzGV5jyRRCJSTXay6Nbqac_ROK9InhkM6B5__6m0rzhvu5UlERqsIK5kqr6t69Zh4jZ5X0uz2ftfz3g8QdcoBQFFFPam5IDgbOykWvp8yv7P6V9_NnypV4zJQye8BlBtUUjfjCh_LPn1qJCviPHYXaC_BWhaGq57PZetpWtP9jDbEJwRlY48pipvMcspHlO_mB0tdi3lSOh9CKeQ-x00X2UHltPqtxLa9jTckn9UoJiaenMo8foQ6QqF29NYV5cewtVlhvP822KpcTR4AcXM-w3bq-D6GDGNDiiLZwKeRmcGcIIIIQdz2A81V9g"
+                    export ARTIFACTORY_APIKEY="eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI1Z0dyZUE3SUk1NWNZelJDSmVHcDJXV01YSnV2SjJvWUNfeVcwNnM5WFQwIn0.eyJzdWIiOiJqZi1hY2Nlc3NAYzE0NTBhNDMtZjgyNS00MDA2LTg2ZjMtNDMzNzJiOTVmNjAxXC91c2Vyc1wvcG1xY2xvdWRAdXMuaWJtLmNvbSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL3VzZXIiLCJhdWQiOlsiamZydEAqIiwiamZ4ckAqIl0sImlzcyI6ImpmLWFjY2Vzc0BjMTQ1MGE0My1mODI1LTQwMDYtODZmMy00MzM3MmI5NWY2MDEiLCJleHAiOjE3MTI1MDE1MDcsImlhdCI6MTcwNDcyNTUwNywianRpIjoiZDQzMDBhMWMtYWQxYy00ODk0LWI4YWYtZjZlNzY2N2VhMWViIn0.aXqWKykbkhVuETZKz4PJnLiV8YsgzGV5jyRRCJSTXay6Nbqac_ROK9InhkM6B5__6m0rzhvu5UlERqsIK5kqr6t69Zh4jZ5X0uz2ftfz3g8QdcoBQFFFPam5IDgbOykWvp8yv7P6V9_NnypV4zJQye8BlBtUUjfjCh_LPn1qJCviPHYXaC_BWhaGq57PZetpWtP9jDbEJwRlY48pipvMcspHlO_mB0tdi3lSOh9CKeQ-x00X2UHltPqtxLa9jTckn9UoJiaenMo8foQ6QqF29NYV5cewtVlhvP822KpcTR4AcXM-w3bq-D6GDGNDiiLZwKeRmcGcIIIIQdz2A81V9g"
+                    export IBM_ENTITLEMENT_KEY=${MAS_ENTITLEMENT_KEY}
+                    export CPD_INSTALL_PLATFORM=True
+                    export CPD_INSTALL_WML=True
+                    ansible-playbook playbooks/cp4d.yml
+                '''
             }
         }
     }
